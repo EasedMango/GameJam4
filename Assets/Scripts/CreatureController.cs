@@ -43,7 +43,7 @@ public class CreatureController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.DrawLine(transform.position, transform.position + transform.position - destination.position);
+       
 
 
         
