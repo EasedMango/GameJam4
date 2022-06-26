@@ -15,9 +15,9 @@ public class PlayerController : MonoBehaviour
 
     public int currentBuilding = 0;
     Rigidbody2D rb2d;
-    private bool BuildModeActive = false;
 
-    public GameObject[] buildings;
+
+
     ContactFilter2D filter2D;
     public LayerMask mask;
     void Start()
@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour
 
     public void UpdateMode(int mode_)
     {
-        Destroy(GameObject.FindWithTag("BuildModeObject"));
+        //Destroy(GameObject.FindWithTag("BuildModeObject"));
         mode = (Modes)mode_;
     }
 
@@ -76,28 +76,9 @@ public class PlayerController : MonoBehaviour
 
         bool overUI = GameObject.Find("UiManager").GetComponent<UiManager>().IsPointerOverUIElement();
 
-        PlaceBuilding(mouse);
 
-        if (!GameObject.FindWithTag("BuildModeObject"))
-        {
-            //   print(buildings[currentBuilding].name);
-            Instantiate(buildings[currentBuilding]).name = buildings[currentBuilding].name;
-        }
 
-        if (buildings[currentBuilding].name + "(Clone)" != GameObject.FindWithTag("BuildModeObject").name)
-        {
-            Destroy(GameObject.FindWithTag("BuildModeObject"));
-            Instantiate(buildings[currentBuilding]);
-        }
-        else if (!overUI && Input.GetMouseButtonDown(0))
-        {
-            GameObject.FindWithTag("BuildModeObject").tag = "Untagged";
-            //PlaceBuilding(building)
-        }
-        else if (!overUI)
-        {
-            GameObject.FindWithTag("BuildModeObject").transform.position = new Vector2(Mathf.Round(mouse.x), Mathf.Round(mouse.y));
-        }
+
 
 
     }
@@ -106,17 +87,15 @@ public class PlayerController : MonoBehaviour
 
     private void PlaceBuilding(Vector2 origin)
     {
-        Ray2D ray = new Ray2D(origin, Vector2.right);
-        RaycastHit2D[] hits = new RaycastHit2D[10];
-        int totalObjectsHit = Physics2D.Raycast(origin,Vector2.right, filter2D, hits);
+
        
 
         Collider2D[] inRange =  Physics2D.OverlapCircleAll(new Vector2(Mathf.Round(origin.x) + 0, Mathf.Round(origin.y) + 4),6.5f,mask);
 
-        Debug.DrawRay(new Vector2(Mathf.Round(origin.x) + 0, Mathf.Round(origin.y) + 4), Vector3.right * 6.5f);
+
         for (int i = 0; i < inRange.Length; i++)
         {
-          
+            print(inRange[i].name);
             
         }
 
