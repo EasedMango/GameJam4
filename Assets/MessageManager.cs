@@ -27,6 +27,7 @@ public class MessageManager : MonoBehaviour
     public void StartMessage(Message message)
     {
        nameText.text = message.names[0];
+        playerController.prevMode= playerController.mode;
         playerController.mode = PlayerController.Modes.StillMode;
         messageQueue.Clear();
         nameQueue.Clear();  
@@ -60,7 +61,10 @@ public class MessageManager : MonoBehaviour
     private void EndDialogue()
     {
         bg.SetActive(false);
+        if(playerController.prevMode!= PlayerController.Modes.StillMode)
         playerController.mode = playerController.prevMode;
+        else
+            playerController.mode = PlayerController.Modes.MoveMode;
        print("End of Message");
     }
     // Update is called once per frame

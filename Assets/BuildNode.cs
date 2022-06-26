@@ -20,14 +20,15 @@ public class BuildNode : MonoBehaviour
     void Update()
     {
         currentBuilding = player.currentBuilding;
-        if (Input.GetKeyDown(KeyCode.E))
+        if (playerInRange && Input.GetKeyDown(KeyCode.E))
         {
             building = !building;
-            player.UpdateMode(2);
+            player.UpdateMode(1);
             print("inBuild");
         }
         if (building)
         {
+            player.UpdateMode(2);
             PlaceBuilding();
         }
     }
@@ -63,7 +64,7 @@ public class BuildNode : MonoBehaviour
             player.UpdateMode(1);
            
             GameObject.FindWithTag("BuildModeObject").tag = "Ship";
-            Destroy(this);
+            Destroy(gameObject);
         }
 
     }

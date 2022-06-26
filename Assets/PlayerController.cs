@@ -50,14 +50,6 @@ public class PlayerController : MonoBehaviour
             default:
                 break;
         }
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            if (mode == Modes.BuildMode)
-                UpdateMode(1);
-            else
-                UpdateMode(2);
-
-        }
 
 
     }
