@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ship
   - BuildModeObject
+  - Habitat
   layers:
   - Default
   - TransparentFX
