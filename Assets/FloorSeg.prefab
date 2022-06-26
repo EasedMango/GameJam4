@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8914251544109643298}
   - component: {fileID: 3563234930518332751}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FloorSeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,6 +95,10 @@ PrefabInstance:
     - target: {fileID: 4000824044200773602, guid: 7b774df9ac197974692246444cf0036c, type: 3}
       propertyPath: m_Name
       value: FloorBlack (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000824044200773602, guid: 7b774df9ac197974692246444cf0036c, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4516664286488074014, guid: 7b774df9ac197974692246444cf0036c, type: 3}
       propertyPath: m_RootOrder
@@ -202,6 +206,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorWhite
       objectReference: {fileID: 0}
+    - target: {fileID: 2319601543649980734, guid: c4740c41c9bb9974a89ae21cb1a8af21, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4740c41c9bb9974a89ae21cb1a8af21, type: 3}
 --- !u!4 &8040889138989154940 stripped
@@ -219,6 +227,10 @@ PrefabInstance:
     - target: {fileID: 4000824044200773602, guid: 7b774df9ac197974692246444cf0036c, type: 3}
       propertyPath: m_Name
       value: FloorBlack
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000824044200773602, guid: 7b774df9ac197974692246444cf0036c, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4516664286488074014, guid: 7b774df9ac197974692246444cf0036c, type: 3}
       propertyPath: m_RootOrder

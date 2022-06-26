@@ -31,7 +31,7 @@ public class UiManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(IsPointerOverUIElement() ? "Over UI" : "Not over UI");
+       // print(IsPointerOverUIElement() ? "Over UI" : "Not over UI");
         switch (playerController.mode)
         {
             case PlayerController.Modes.StillMode:
@@ -70,7 +70,7 @@ public class UiManager : MonoBehaviour
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("The cursor entered the selectable UI element.");
+        //Debug.Log("The cursor entered the selectable UI element.");
     }
 
 

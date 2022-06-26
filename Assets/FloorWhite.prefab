@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 455221616264801315}
   - component: {fileID: 5519067210584428366}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FloorWhite
   m_TagString: Ship
   m_Icon: {fileID: 0}
