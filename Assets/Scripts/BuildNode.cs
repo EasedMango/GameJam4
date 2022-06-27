@@ -51,7 +51,7 @@ public class BuildNode : MonoBehaviour
         {
             //   print(buildings[currentBuilding].name);
             Instantiate(buildings[currentBuilding]).name = buildings[currentBuilding].name;
-            GameObject.FindWithTag("BuildModeObject").transform.position = placement;
+            GameObject.FindWithTag("BuildModeObject").transform.position= transform.position+ placement;
         }
         else if (buildings[currentBuilding].name != GameObject.FindWithTag("BuildModeObject").name)
         {
@@ -63,7 +63,7 @@ public class BuildNode : MonoBehaviour
         {
             building = !building;
             player.UpdateMode(1);
-            player.currentBuilding -=1;
+            player.currentBuilding = player.currentBuilding-1;
             GameObject.FindWithTag("BuildModeObject").tag = "Habitat";
             Destroy(gameObject);
         }

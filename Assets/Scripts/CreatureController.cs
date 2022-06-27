@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class CreatureController : MonoBehaviour
 {
     //Dialogue TriggerStates
@@ -13,6 +13,8 @@ public class CreatureController : MonoBehaviour
     public Transform foodBowl;
     public Transform drinkBowl;
     public Transform bed;
+
+    public GameObject winScreen;
 
     public SpriteRenderer h;
     public SpriteRenderer s;
@@ -33,9 +35,10 @@ public class CreatureController : MonoBehaviour
         destination = patrolPoints[Random.Range(0, patrolPoints.Length)].transform;
         moveTimer = Random.Range(3, 8);
         messages = GetComponent<NPCMessages>();
+        uiManager = GameObject.Find("UiManager").GetComponent<UiManager>();
         if (GameObject.FindGameObjectWithTag("Habitat"))
         {
-            transform.position = GameObject.FindGameObjectWithTag("Habitat").transform.position;
+            //transform.position = GameObject.FindGameObjectWithTag("Habitat").transform.position;
         }
 
     }
@@ -43,10 +46,9 @@ public class CreatureController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
 
 
-        
+
 
         if (GameObject.FindGameObjectWithTag("Habitat"))
         {
@@ -117,13 +119,17 @@ public class CreatureController : MonoBehaviour
 
         if (playerInRange && Input.GetKeyDown(KeyCode.E))
         {
-
+            if(name == "Cre1")
+            {
+                GameObject.FindWithTag("Win").GetComponent<RectTransform>().localPosition = Vector3.zero;
+                GameObject.Find("Player").GetComponent<PlayerController>().UpdateMode(0);
+            }
             if (!firstMessage)
             {
                 print("messageOne");
                 TriggerDialogue(messages.messages[0]);
                 firstMessage = true;
-                uiManager.UpdateObjectiveText("Build Creature's Habitat\nPress: B");
+                uiManager.UpdateObjectiveText("Refill the food and drink\nPress: E on the bowls");
             }
             else
             {

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MessageTrigger : MonoBehaviour
 {
@@ -10,6 +11,11 @@ public class MessageTrigger : MonoBehaviour
     public void TriggerDialogue()
     {
         FindObjectOfType<MessageManager>().StartMessage(message);
-        if (destroyOnClick) Destroy(gameObject);
+        if (destroyOnClick) {
+
+            GameObject.Find("StartScreen").gameObject.SetActive(false);
+
+                
+                };
     }
 }

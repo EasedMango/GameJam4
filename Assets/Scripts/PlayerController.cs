@@ -12,9 +12,11 @@ public class PlayerController : MonoBehaviour
     public float speed = 2;
     public Modes mode = Modes.MoveMode;
     public Modes prevMode;
+    Animator anime;
 
     public int currentBuilding = 0;
     Rigidbody2D rb2d;
+    public GameObject menu;
 
     public float food=1, drink=1, material=1;
 
@@ -23,6 +25,7 @@ public class PlayerController : MonoBehaviour
     public LayerMask mask;
     void Start()
     {
+        anime = GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();
         prevMode = Modes.MoveMode;
         filter2D = new ContactFilter2D
@@ -36,6 +39,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            menu.gameObject.SetActive(true);
+        }
+
 
         switch (mode)
         {
@@ -107,6 +115,21 @@ public class PlayerController : MonoBehaviour
         //  print("MoveMode");
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
+        if (horizontal != 0 || vertical != 0)
+        {
+            anime.SetBool("Walk", true);
+        }
+        else
+            anime.SetBool("Walk", false);
+        if (horizontal > 0.1)
+        {
+            gameObject.GetComponent<SpriteRenderer>().flipX = true;
+            
+        }
+        if (horizontal < -0.1)
+        {
+            gameObject.GetComponent<SpriteRenderer>().flipX = false;
+        }
 
         rb2d.velocity = new Vector3(horizontal, vertical, 0f).normalized * speed;
     }

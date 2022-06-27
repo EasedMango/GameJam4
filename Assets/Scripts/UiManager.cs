@@ -43,9 +43,10 @@ public class UiManager : MonoBehaviour
 
     public void UpdateInventoryText()
     {
-        inventoryText.text = "Building Material: " + playerController.material +
-                             "\nFood: " + playerController.food +
-                             "\nDrink: " + playerController.drink;
+        inventoryText.text = "Inventory: "+
+                            "\n Building Material: " + playerController.material +
+                             "\n Food: " + playerController.food +
+                             "\n Drink: " + playerController.drink;
     }
 
     // Update is called once per frame
@@ -62,9 +63,10 @@ public class UiManager : MonoBehaviour
             alertText.gameObject.SetActive(false);
         }
         UpdateInventoryText();
-                inventoryText.text = "Building Material: " + playerController.material +
-                             "\nFood: " + playerController.food +
-                             "\nDrink: " + playerController.drink;
+        inventoryText.text = "Inventory: " +
+                            "\n Building Material: " + playerController.material +
+                             "\n Food: " + playerController.food +
+                             "\n Drink: " + playerController.drink;
         // print(IsPointerOverUIElement() ? "Over UI" : "Not over UI");
         switch (playerController.mode)
         {
